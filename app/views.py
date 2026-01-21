@@ -8,7 +8,8 @@ def addstudent(request):
         email=request.POST['mail']
         age=request.POST['age']
         phone=request.POST['phone']
-        data= Students.objects.create(name=name,email=email,age=age,phone=phone)
+        course=request.POST['course']
+        data= Students.objects.create(name=name,email=email,age=age,phone=phone,course=course)
         data.save()
         print('student registered successfully')
         return redirect(index)
@@ -26,7 +27,8 @@ def update(request,pk):
         email=request.POST['mail']
         age=request.POST['age']
         phone=request.POST['phone']
-        Students.objects.filter(pk=pk).update(name=name,email=email,age=age,phone=phone) 
+        course=request.POST['course']
+        Students.objects.filter(pk=pk).update(name=name,email=email,age=age,phone=phone,course=course) 
         return redirect(index)
     return render(request,'update.html',{'std':std})
 

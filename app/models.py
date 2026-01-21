@@ -6,4 +6,5 @@ class Students(models.Model):
     email=models.EmailField()
     age=models.IntegerField()
     phone=models.IntegerField()
+    course=models.TextField()
 
